@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Prueba Menu Lateral</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Ingresar</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="error_invalid_email">Usuario o contraeña inválidos</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing emailcompletions."</string>
+    <string name="title_activity_principal">Principal</string>
+    <string name="drawer_open">Abrir navigation drawer</string>
+    <string name="drawer_close">Cerrar navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mapas">Map</string>
+    <string name="title_activity_requerimientos">Requerimientos</string>
+
+</resources>
