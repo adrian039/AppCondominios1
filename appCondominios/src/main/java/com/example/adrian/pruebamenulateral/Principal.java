@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Principal extends ActionBarActivity {
+
     TextView nombre;
-    TextView condominio;
     DrawerLayout drawerLayout;
     RelativeLayout drawerPane;
     ListView lvNav;
     List<NavItem> listNavItems;
-    List<Fragment> listFragments;
+
 
     ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -69,9 +69,14 @@ public class Principal extends ActionBarActivity {
                             Toast.LENGTH_LONG).show();
                 } else if(position==2){
                     startActivity(new Intent(Principal.this, MapasActivity.class));
+                    finish();
+                }else if(position==3){
+                    startActivity(new Intent(Principal.this, Requerimientos.class));
+                    finish();
                 }
                 else if (position == 5) {
                     startActivity(new Intent(Principal.this, Login.class));
+                    finish();
                 }
             }
         });
@@ -103,17 +108,12 @@ public class Principal extends ActionBarActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the MyHome/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
