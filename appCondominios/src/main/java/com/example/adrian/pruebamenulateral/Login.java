@@ -139,14 +139,16 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-               if(conexion.isChecked()){
+             /*  if(conexion.isChecked()){
                     QuerySQL("SELECT * FROM tblUsuarios");
                 }else {
                    Toast.makeText(Login.this, "Debe establecer la conexión con el servidor", Toast.LENGTH_LONG).show();
                }
+                */
 
+                //** Para la funcion del web service no es necesario usar el switch de conexion ya que ese era para usar directamente con los
+                //comandos de SQL Server
 
-                /*
                 Cliente=new ClienteServicio();
                 boolean aut;
                 aut=Cliente.lfAutenticar(Username.getText().toString(),Password.getText().toString());
@@ -161,7 +163,7 @@ public class Login extends AppCompatActivity {
                    Toast.makeText(Login.this, "Usuario o contraseña incorrectos",
                            Toast.LENGTH_LONG).show();
                }
-               */
+
 
             }
         });

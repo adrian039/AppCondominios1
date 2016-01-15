@@ -56,7 +56,7 @@ public class ClienteServicio extends AsyncTask {
     }
     public boolean lfAutenticar(String s, String s1) {
 
-            SoapObject soapobject = new SoapObject("http://tempuri.org/", "Auntenticar");
+          /*  SoapObject soapobject = new SoapObject("http://tempuri.org/", "Auntenticar");
             soapobject.addProperty("username", s);
             soapobject.addProperty("password", s1);
             SoapSerializationEnvelope envelope =
@@ -65,7 +65,7 @@ public class ClienteServicio extends AsyncTask {
             envelope.dotNet = true;
 
             envelope.setOutputSoapObject(soapobject);
-            HttpTransportSE transporte = new HttpTransportSE(Proxy.NO_PROXY,"http://192.168.0.124:55882/WebService1.asmx",60000);
+            HttpTransportSE transporte = new HttpTransportSE("http://10.0.2.2:55882/WebService1.asmx");
         try {
             transporte.call("http://tempuri.org/Auntenticar", envelope);
             SoapPrimitive resultado_xml = (SoapPrimitive) envelope.getResponse();
@@ -79,8 +79,7 @@ public class ClienteServicio extends AsyncTask {
         }catch (Exception e){
             e.printStackTrace();
             return  false;
-        }
-        /*
+        }*/
         SoapObject soapobject = new SoapObject("http://cisaweb.com/", "Autentica");
         soapobject.addProperty("SecurityUser", s);
         soapobject.addProperty("SecurityPassword", s1);
@@ -105,7 +104,7 @@ public class ClienteServicio extends AsyncTask {
             e.printStackTrace();
             return  false;
         }
-        */
+
 
 
 
