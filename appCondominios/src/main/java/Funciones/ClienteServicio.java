@@ -54,6 +54,7 @@ public class ClienteServicio extends AsyncTask {
         soapserializationenvelope.setOutputSoapObject(soapobject);
         return soapserializationenvelope;
     }
+    //Prueba github
     public boolean lfAutenticar(String s, String s1) {
 
           /*  SoapObject soapobject = new SoapObject("http://tempuri.org/", "Auntenticar");
