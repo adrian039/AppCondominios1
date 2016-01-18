@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Funciones.ClienteServicio;
+import Funciones.Conexion;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -58,6 +59,7 @@ public class Login extends AppCompatActivity {
     static Connection connect;
     static String usuario;
     ClienteServicio Cliente;
+    Conexion conectar;
 
     private void inicializar()
     {
@@ -134,6 +136,7 @@ public class Login extends AppCompatActivity {
         Username=(EditText) findViewById(R.id.txtNombre);
         Entrar=(Button)findViewById(R.id.btnEntrar);
         conexion=(Switch)findViewById(R.id.switch1);
+        conectar=new Conexion();
 
         Entrar.setOnClickListener(new View.OnClickListener() {
             @Override

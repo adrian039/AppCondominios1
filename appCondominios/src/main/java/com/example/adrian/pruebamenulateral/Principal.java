@@ -69,14 +69,11 @@ public class Principal extends ActionBarActivity {
                             Toast.LENGTH_LONG).show();
                 } else if(position==2){
                     startActivity(new Intent(Principal.this, MapasActivity.class));
-                    finish();
                 }else if(position==3){
                     startActivity(new Intent(Principal.this, Requerimientos.class));
-                    finish();
                 }
                 else if (position == 5) {
                     startActivity(new Intent(Principal.this, Login.class));
-                    finish();
                 }
             }
         });
