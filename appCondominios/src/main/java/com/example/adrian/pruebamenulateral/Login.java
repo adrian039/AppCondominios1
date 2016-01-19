@@ -154,19 +154,25 @@ public class Login extends AppCompatActivity {
 
                 Cliente=new ClienteServicio();
                 boolean aut;
-                aut=Cliente.lfAutenticar(Username.getText().toString(),Password.getText().toString());
-               if(aut){
-                   Toast.makeText(Login.this, "Login Exitoso",
-                           Toast.LENGTH_LONG).show();
-                   Username.setText("");
-                   Password.setText("");
-                   conexion.setChecked(false);
-                   startActivity(new Intent(Login.this, Principal.class));
-               }else{
-                   Toast.makeText(Login.this, "Usuario o contraseña incorrectos",
-                           Toast.LENGTH_LONG).show();
-               }
+                if(conectar.Comprobar(Login.this)){
+                    aut=Cliente.lfAutenticar(Username.getText().toString(),Password.getText().toString());
+                    if(aut){
+                        Toast.makeText(Login.this, "Login Exitoso",
+                                Toast.LENGTH_LONG).show();
+                        Username.setText("");
+                        Password.setText("");
+                        conexion.setChecked(false);
+                        startActivity(new Intent(Login.this, Principal.class));
+                        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                    }else{
+                        Toast.makeText(Login.this, "Usuario o contraseña incorrectos",
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    Toast.makeText(Login.this, "Debe estar conectado a una red wifi o de datos moviles.", Toast.LENGTH_LONG).show();
 
+                }
 
             }
         });

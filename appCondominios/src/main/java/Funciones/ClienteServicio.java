@@ -54,34 +54,9 @@ public class ClienteServicio extends AsyncTask {
         soapserializationenvelope.setOutputSoapObject(soapobject);
         return soapserializationenvelope;
     }
-    //Prueba github
     public boolean lfAutenticar(String s, String s1) {
 
-          /*  SoapObject soapobject = new SoapObject("http://tempuri.org/", "Auntenticar");
-            soapobject.addProperty("username", s);
-            soapobject.addProperty("password", s1);
-            SoapSerializationEnvelope envelope =
-                    new SoapSerializationEnvelope(SoapEnvelope.VER11);
-
-            envelope.dotNet = true;
-
-            envelope.setOutputSoapObject(soapobject);
-            HttpTransportSE transporte = new HttpTransportSE("http://10.0.2.2:55882/WebService1.asmx");
-        try {
-            transporte.call("http://tempuri.org/Auntenticar", envelope);
-            SoapPrimitive resultado_xml = (SoapPrimitive) envelope.getResponse();
-            String res = resultado_xml.toString();
-            System.out.println("VEEEEEEEEEEEEEEEEAA::::"+res);
-            if (res.equals("true")) {
-                return true;
-            } else {
-                return false;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            return  false;
-        }*/
-        SoapObject soapobject = new SoapObject("http://cisaweb.com/", "Autentica");
+          /* SoapObject soapobject = new SoapObject("http://cisaweb.com/", "Autentica");
         soapobject.addProperty("SecurityUser", s);
         soapobject.addProperty("SecurityPassword", s1);
         SoapSerializationEnvelope envelope =
@@ -96,7 +71,32 @@ public class ClienteServicio extends AsyncTask {
             SoapPrimitive resultado_xml = (SoapPrimitive) envelope.getResponse();
             String res = resultado_xml.toString();
             System.out.println("VEEEEEEEEEEEEEEEEAA::::"+res);
-            if (res.equals("true")) {
+            if (res.equals("2015")) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return  false;
+        }
+        }*/
+        SoapObject soapobject = new SoapObject("http://cisaweb.com/", "Autentica");
+        soapobject.addProperty("SecurityUser", s);
+        soapobject.addProperty("SecurityPassword", s1);
+        SoapSerializationEnvelope envelope =
+                new SoapSerializationEnvelope(SoapEnvelope.VER11);
+
+        envelope.dotNet = true;
+
+        envelope.setOutputSoapObject(soapobject);
+        HttpTransportSE transporte = new HttpTransportSE(Proxy.NO_PROXY,"https://www.cisaweb.com:443/wsAppCondominios/service.asmx",60000);
+        try {
+            transporte.call("http://cisaweb.com/Autentica", envelope);
+            SoapPrimitive resultado_xml = (SoapPrimitive) envelope.getResponse();
+            String res = resultado_xml.toString();
+            System.out.println("VEEEEEEEEEEEEEEEEAA::::"+res);
+            if (res.equals("2015")) {
                 return true;
             } else {
                 return false;
@@ -112,6 +112,3 @@ public class ClienteServicio extends AsyncTask {
     }
 }
 
-// esto es una prueba .....
-// otra prueba de actualizacion del app
-// listo Adrian..
