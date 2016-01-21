@@ -7,7 +7,10 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -24,6 +27,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
+import Interfaz.MenuLateral;
+
 public class MapasActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -37,18 +42,17 @@ public class MapasActivity extends FragmentActivity implements OnMapReadyCallbac
     DrawerLayout drawerLayout;
     RelativeLayout drawerPane;
     ListView lvNav;
-    List<NavItem> listNavItems;
-    ActionBarDrawerToggle actionBarDrawerToggle;
+    MenuLateral menuM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapas);
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -93,9 +97,10 @@ public class MapasActivity extends FragmentActivity implements OnMapReadyCallbac
             mMap.animateCamera(zoom);
 
         }catch(Exception e){
-            //Agregar algo xD
+
         }
     }
+
 
 
 }

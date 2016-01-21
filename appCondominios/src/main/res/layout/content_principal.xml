@@ -12,13 +12,4 @@
     tools:context="com.example.adrian.pruebamenulateral.Principal"
     tools:showIn="@layout/activity_principal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/txtNombre"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
 </RelativeLayout>

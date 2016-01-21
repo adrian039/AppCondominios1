@@ -1,4 +1,4 @@
-package com.example.adrian.pruebamenulateral;
+package Interfaz;
 
 import android.content.Context;
 import android.view.View;
@@ -7,7 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.adrian.pruebamenulateral.R;
+
 import java.util.List;
+
+import Interfaz.NavItem;
 
 /**
  * Created by Adrian on 07/01/2016.

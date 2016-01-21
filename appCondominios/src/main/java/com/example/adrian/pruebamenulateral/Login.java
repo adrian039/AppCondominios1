@@ -60,6 +60,7 @@ public class Login extends AppCompatActivity {
     static String usuario;
     ClienteServicio Cliente;
     Conexion conectar;
+    public static String nActivity;
 
     private void inicializar()
     {
@@ -163,7 +164,7 @@ public class Login extends AppCompatActivity {
                         Password.setText("");
                         conexion.setChecked(false);
                         startActivity(new Intent(Login.this, Principal.class));
-                        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                        overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
                     }else{
                         Toast.makeText(Login.this, "Usuario o contraseña incorrectos",
                                 Toast.LENGTH_LONG).show();

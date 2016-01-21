@@ -24,76 +24,48 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import Interfaz.MenuLateral;
+import Interfaz.PostAdapter;
+
 public class Principal extends ActionBarActivity {
 
-    TextView nombre;
     DrawerLayout drawerLayout;
     RelativeLayout drawerPane;
     ListView lvNav;
-    List<NavItem> listNavItems;
+    MenuLateral menu;
 
+    String[] titulo;
+    String[] contenido;
+    String[] indicador;
 
-    ActionBarDrawerToggle actionBarDrawerToggle;
+    private ListView lista;
+    PostAdapter adapter;
+
+    int currentViewPager;
+    String nombreCircuito;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        nombre = (TextView) findViewById(R.id.txtNombre);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        nombre.setText(Login.usuario);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         drawerPane=(RelativeLayout)findViewById(R.id.content_frame);
         lvNav=(ListView)findViewById(R.id.left_drawer);
-        listNavItems=new ArrayList<NavItem>();
+        lista=(ListView)findViewById(R.id.listView);
+        menu=new MenuLateral(getApplicationContext(),lvNav,drawerLayout,Principal.this);
+        Login.nActivity="Principal";
 
-        listNavItems.add(new NavItem("", "", R.drawable.home));
-        listNavItems.add(new NavItem("Home", "Página Principal", R.drawable.home));
-        listNavItems.add(new NavItem("Mapa", "Ver mapa", R.drawable.map));
-        listNavItems.add(new NavItem("Requerimientos", "Enviar un requerimiento", R.drawable.edit));
-        listNavItems.add(new NavItem("Configuración", "Ver Configuración de cuenta", R.drawable.setting));
-        listNavItems.add(new NavItem("Salir", "Cerrar Sesión", R.drawable.logout));
+        titulo= new String[]{"Cobro mes Enero", "Solicitud de Arreglo", "Descuento 25%", "Requerimiento", "Validar Cuenta"};
+        indicador=new String[]{"Realizado", "Pendiente", "Pendiente", "Realizado","Pendiente"};
+        contenido=new String[]{"NADA NADA NADA NADA NADA NADA NADA", "NADA NADA NADA NADA NADA NADA NADA", "NADA NADA NADA NADA NADA NADA NADA", "NADA NADA NADA NADA NADA NADA NADA","NADA NADA NADA NADA NADA NADA NADA"};
 
-        NavListAdapter navListAdapter= new NavListAdapter(getApplicationContext(),R.layout.item_nav_list,listNavItems);
 
-        lvNav.setAdapter(navListAdapter);
-
-        lvNav.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1) {
-                    Toast.makeText(Principal.this, "Home",
-                            Toast.LENGTH_LONG).show();
-                } else if(position==2){
-                    startActivity(new Intent(Principal.this, MapasActivity.class));
-                }else if(position==3){
-                    startActivity(new Intent(Principal.this, Requerimientos.class));
-                }
-                else if (position == 5) {
-                    startActivity(new Intent(Principal.this, Login.class));
-                }
-            }
-        });
-
-        actionBarDrawerToggle=new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close)
-        {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                invalidateOptionsMenu();
-                super.onDrawerOpened(drawerView);
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                invalidateOptionsMenu();
-                super.onDrawerClosed(drawerView);
-            }
-        };
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
-
+        adapter=new PostAdapter(this,indicador,titulo,contenido);
+        lista.setAdapter(adapter);
 
 
     }
@@ -101,17 +73,17 @@ public class Principal extends ActionBarActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        actionBarDrawerToggle.syncState();
+        menu.actionBarDrawerToggle.syncState();
     }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+    public boolean onCreateOptionsMenu(Menu menu1) {
+        getMenuInflater().inflate(R.menu.main, menu1);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item))
+        if (menu.actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
