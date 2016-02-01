@@ -32,7 +32,38 @@
         <RelativeLayout
             android:id="@+id/content_frame1"
             android:layout_width="280dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_below="@+id/textView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enviar"
+                android:id="@+id/button"
+                android:layout_below="@+id/editText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="44dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Requerimiento"
+                android:id="@+id/textView"
+                android:layout_marginTop="144dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignStart="@+id/editText" />
+        </RelativeLayout>
 
         <ListView
             android:id="@+id/left_drawer1"
