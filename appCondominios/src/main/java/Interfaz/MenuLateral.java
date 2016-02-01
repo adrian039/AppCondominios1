@@ -34,6 +34,7 @@ public class MenuLateral extends Activity  {
         listNavItems.add(new NavItem("Home", "Página Principal", R.drawable.home));
         listNavItems.add(new NavItem("Mapa", "Ver mapa", R.drawable.map));
         listNavItems.add(new NavItem("Requerimientos", "Enviar un requerimiento", R.drawable.edit));
+        listNavItems.add(new NavItem("Pagos", "Ver lista de pagos", R.drawable.monedas));
         listNavItems.add(new NavItem("Configuración", "Ver Configuración de cuenta", R.drawable.setting));
         listNavItems.add(new NavItem("Salir", "Cerrar Sesión", R.drawable.logout));
 
@@ -60,7 +61,7 @@ public class MenuLateral extends Activity  {
                     context.startActivity(i);
                     (activity).overridePendingTransition(R.anim.left_in, R.anim.left_out);
                 }
-                else if (position == 5) {
+                else if (position == 6) {
                     Intent i =new Intent(context,Login.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(i);
