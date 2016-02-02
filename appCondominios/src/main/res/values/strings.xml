@@ -17,5 +17,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_mapas">Map</string>
     <string name="title_activity_requerimientos">Requerimientos</string>
+    <string name="title_activity_pagos">Pagos</string>
 
 </resources>

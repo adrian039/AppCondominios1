@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.example.adrian.pruebamenulateral.Login;
 import com.example.adrian.pruebamenulateral.MapasActivity;
+import com.example.adrian.pruebamenulateral.Pagos;
 import com.example.adrian.pruebamenulateral.Principal;
 import com.example.adrian.pruebamenulateral.R;
 import com.example.adrian.pruebamenulateral.Requerimientos;
@@ -60,11 +61,18 @@ public class MenuLateral extends Activity  {
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(i);
                     (activity).overridePendingTransition(R.anim.left_in, R.anim.left_out);
-                }
-                else if (position == 6) {
-                    Intent i =new Intent(context,Login.class);
+                }else if(position==4 && (Login.nActivity.equals("Pagos")==false)){
+                    Intent i =new Intent(context,Pagos.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(i);
+                    (activity).overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                }else if (position == 6) {
+                    Intent i =new Intent(context,Login.class);
+                    //**************Este comando sirve para cerrar tod la pila de Activities abiertos anteriormente***************
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    //************************************************************************************************************
+                    context.startActivity(i);
+                    activity.finish();
                     (activity).overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 }
             }

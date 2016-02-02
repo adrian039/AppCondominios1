@@ -55,6 +55,10 @@
         <activity
             android:name=".Requerimientos"
             android:label="@string/title_activity_requerimientos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Pagos"
+            android:label="@string/title_activity_pagos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
