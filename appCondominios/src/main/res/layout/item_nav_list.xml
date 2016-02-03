@@ -7,8 +7,8 @@
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:id="@+id/nav_icon"
          />
 
