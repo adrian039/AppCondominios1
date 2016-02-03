@@ -54,7 +54,6 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class Login extends AppCompatActivity {
     Button Entrar;
     EditText Username;
-    Switch conexion;
     EditText Password;
     static Connection connect;
     static String usuario;
@@ -62,73 +61,7 @@ public class Login extends AppCompatActivity {
     Conexion conectar;
     public static String nActivity;
 
-    private void inicializar()
-    {
-        Login.connect = CONN("usuario_condominios", "123456789", "appCondominios", "192.168.0.124:1433");
-    }
 
-    @SuppressLint("NewApi")
-    private Connection CONN(String _user, String _pass, String _DB, String _server )
-    {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        Connection conn = null;
-        String ConnURL = null;
-        try {
-
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            ConnURL = "jdbc:jtds:sqlserver://" + _server + ";" + "databaseName=" + _DB + ";user=" + _user + ";password=" + _pass + ";";
-            conn = DriverManager.getConnection(ConnURL);
-        } catch (SQLException se) {
-            Log.e("ERROR", se.getMessage());
-        } catch (ClassNotFoundException e) {
-            Log.e("ERROR",e.getMessage());
-        } catch (Exception e) {
-            Log.e("ERROR", e.getMessage());
-        }
-
-        return conn;
-    }
-
-
-
-    public void QuerySQL(String COMANDOSQL){
-        ResultSet rs;
-        boolean valor=false;
-        try {
-
-            Statement statement = Login.connect.createStatement();
-            rs = statement.executeQuery(COMANDOSQL);
-            System.out.print(rs);
-
-            while(rs.next()){
-                if(Username.getText().toString().equals(rs.getString("UserName")) &&
-                        Password.getText().toString().equals(rs.getString("Clave"))){
-                    usuario=rs.getString("Nombre");
-                    Toast.makeText(Login.this, "Login Exitoso",
-                            Toast.LENGTH_LONG).show();
-                    Username.setText("");
-                    Password.setText("");
-                    conexion.setChecked(false);
-                    startActivity(new Intent(Login.this, Principal.class));
-
-                    valor=true;
-                    break;
-                }else{
-
-                }
-
-            }
-            if(valor==false){
-                Toast.makeText(Login.this, "Usuario o contraseña incorrectos",
-                        Toast.LENGTH_LONG).show();
-            }
-
-        } catch (Exception e) {
-            Log.e("ERROR",e.getMessage());
-        }
-
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,9 +69,8 @@ public class Login extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.txtClave);
         Username=(EditText) findViewById(R.id.txtNombre);
         Entrar=(Button)findViewById(R.id.btnEntrar);
-        conexion=(Switch)findViewById(R.id.switch1);
         conectar=new Conexion();
-
+        Login.this.setTitle("CISA Condominios");
         Entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,7 +94,7 @@ public class Login extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                         Username.setText("");
                         Password.setText("");
-                        conexion.setChecked(false);
+
                         startActivity(new Intent(Login.this, Principal.class));
                         overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
                     }else{
@@ -177,15 +109,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
-        conexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (conexion.isChecked()) {
-                    inicializar();
-                    Toast.makeText(Login.this, "Conexión con el servidor establecida", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+
 
 
     }

@@ -12,13 +12,6 @@
 
     <!-- Login progress -->
 
-    <Switch
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Conexión"
-        android:id="@+id/switch1"
-        android:checked="false" />
-
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -29,6 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"></LinearLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -44,6 +43,12 @@
                     android:inputType="text" />
 
             </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -62,6 +67,12 @@
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal" />
 
             <Button
                 android:id="@+id/btnEntrar"
