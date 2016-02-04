@@ -12,4 +12,15 @@
     tools:context="com.example.adrian.pruebamenulateral.Pagos"
     tools:showIn="@layout/activity_pagos">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Usted actualmente no tiene pagos pendientes"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:textAlignment="center"
+        android:textColor="#625f5f" />
 </RelativeLayout>
