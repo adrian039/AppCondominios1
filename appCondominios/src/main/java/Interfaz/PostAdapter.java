@@ -67,10 +67,10 @@ public class PostAdapter extends BaseAdapter {
         txtContenido.setText(contenido[position]);
         if(indicador[position].equals("Pendiente")){
             txtIndicador.setText("Pendiente");
-            txtIndicador.setTextColor(Color.RED);
+            txtIndicador.setTextColor(Color.parseColor("#E53935"));
         }else{
             txtIndicador.setText("Realizado");
-            txtIndicador.setTextColor(Color.GREEN);
+            txtIndicador.setTextColor(Color.parseColor("#00C853"));
         }
 
         return itemView;

@@ -70,7 +70,8 @@ public class Login extends AppCompatActivity {
         Username=(EditText) findViewById(R.id.txtNombre);
         Entrar=(Button)findViewById(R.id.btnEntrar);
         conectar=new Conexion();
-        Login.this.setTitle("CISA Condominios");
+        Login.this.setTitle("                CISA Condominios");
+
         Entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,10 +87,10 @@ public class Login extends AppCompatActivity {
                 //comandos de SQL Server
 
                 Cliente=new ClienteServicio();
-                boolean aut;
+                String aut;
                 if(conectar.Comprobar(Login.this)){
                     aut=Cliente.lfAutenticar(Username.getText().toString(),Password.getText().toString());
-                    if(aut){
+                    if(aut.equals("true")){
                         Toast.makeText(Login.this, "Login Exitoso",
                                 Toast.LENGTH_LONG).show();
                         Username.setText("");
@@ -97,8 +98,11 @@ public class Login extends AppCompatActivity {
 
                         startActivity(new Intent(Login.this, Principal.class));
                         overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
-                    }else{
+                    }else if(aut.equals("false")){
                         Toast.makeText(Login.this, "Usuario o contraseña incorrectos",
+                                Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(Login.this, "Error en la comunicación con el servidor.",
                                 Toast.LENGTH_LONG).show();
                     }
                 }

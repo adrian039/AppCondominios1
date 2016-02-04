@@ -16,24 +16,6 @@ import org.ksoap2.transport.HttpTransportSE;
  * Created by Adrian on 08/01/2016.
  */
 public class ClienteServicio extends AsyncTask {
-    private final String strACCION_AUTENTICA = "http://cisaweb.com/Autentica";
-    private final String strACCION_EXPORTARCOORDENADAS = "http://cisaweb.com/ExportarCoordenadas";
-    private final String strACCION_EXPORTARFOTO = "http://cisaweb.com/ExportarFotos";
-    private final String strACCION_EXPORTARLECTURAS = "http://cisaweb.com/ExportarLecturas";
-    private final String strACCION_IMPORTARLECTURAS = "http://cisaweb.com/ImportarLecturas";
-    private final String strACCION_IMPORTAR_ABONADOS = "http://cisaweb.com/ImportarAbonados";
-    private final String strACCION_RECUPERARZONAS = "http://cisaweb.com/ImportarZonas";
-    private final String strACCION_TEST = "http://cisaweb.com/TestConnection";
-    private final String strMETODO_AUTENTICA = "Autentica";
-    private final String strMETODO_EXPORTARCOORDENADAS = "ExportarCoordenadas";
-    private final String strMETODO_EXPORTARFOTO = "ExportarFotos";
-    private final String strMETODO_EXPORTARLECTURAS = "ExportarLecturas";
-    private final String strMETODO_IMPORTARLECTURAS = "ImportarLecturas";
-    private final String strMETODO_IMPORTAR_ABONADOS = "ImportarAbonados";
-    private final String strMETODO_RECUPERARZONAS = "ImportarZonas";
-    private final String strMETODO_TEST = "TestConnection";
-    private final String strNAMESPACE = "http://cisaweb.com/";
-    private final String strURL = "https://www.cisaweb.com:443/wsCisaApp/service.asmx";
 
 
     public ClienteServicio(){
@@ -54,7 +36,7 @@ public class ClienteServicio extends AsyncTask {
         soapserializationenvelope.setOutputSoapObject(soapobject);
         return soapserializationenvelope;
     }
-    public boolean lfAutenticar(String s, String s1) {
+    public String lfAutenticar(String s, String s1) {
 
           /* SoapObject soapobject = new SoapObject("http://cisaweb.com/", "Autentica");
         soapobject.addProperty("SecurityUser", s);
@@ -97,13 +79,13 @@ public class ClienteServicio extends AsyncTask {
             String res = resultado_xml.toString();
             System.out.println("VEEEEEEEEEEEEEEEEAA::::"+res);
             if (res.equals("2015")) {
-                return true;
+                return "true";
             } else {
-                return false;
+                return "false";
             }
         }catch (Exception e){
             e.printStackTrace();
-            return  false;
+            return  "con";
         }
 
 
