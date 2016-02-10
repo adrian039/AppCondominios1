@@ -33,8 +33,8 @@ public class MenuLateral extends Activity  {
 
         listNavItems.add(new NavItem("", "", R.drawable.home));
         listNavItems.add(new NavItem("Home", "Página Principal", R.drawable.home));
-        listNavItems.add(new NavItem("Mapa", "Ver mapa", R.drawable.map));
-        listNavItems.add(new NavItem("Requerimientos", "Enviar un requerimiento", R.drawable.edit));
+        listNavItems.add(new NavItem("Zonas", "Zonas de Condominios", R.drawable.zona1));
+        listNavItems.add(new NavItem("Requerimientos", "Enviar un requerimiento", R.drawable.editar));
         listNavItems.add(new NavItem("Pagos", "Ver lista de pagos", R.drawable.monedas));
         listNavItems.add(new NavItem("Configuración", "Ver Configuración de cuenta", R.drawable.setting));
         listNavItems.add(new NavItem("Salir", "Cerrar Sesión", R.drawable.logout));

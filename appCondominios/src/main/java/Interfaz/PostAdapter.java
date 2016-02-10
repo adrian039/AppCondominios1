@@ -11,27 +11,28 @@ import android.widget.TextView;
 
 import com.example.adrian.pruebamenulateral.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Adrian on 21/01/2016.
  */
 public class PostAdapter extends BaseAdapter {
     // Declare Variables
     Context context;
-    String[] indicador;
-    String[] titulos;
-    String[] contenido;
+    JSONArray listaPost;
     LayoutInflater inflater;
+    JSONObject obj;
 
-    public PostAdapter(Context context, String[] indicador, String[] titulos, String[] contenido) {
+    public PostAdapter(Context context, JSONArray listaPost) {
         this.context = context;
-        this.indicador = indicador;
-        this.titulos = titulos;
-        this.contenido = contenido;
+        this.listaPost=listaPost;
     }
 
     @Override
     public int getCount() {
-        return titulos.length;
+        return listaPost.length();
     }
 
     @Override
@@ -49,7 +50,7 @@ public class PostAdapter extends BaseAdapter {
         // Declare Variables
         TextView txtTitulo;
         TextView txtContenido;
-        TextView txtIndicador;
+        ImageView ImgEstado;
 
         //http://developer.android.com/intl/es/reference/android/view/LayoutInflater.html
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -59,20 +60,24 @@ public class PostAdapter extends BaseAdapter {
         // Locate the TextViews in listview_item.xml
         txtTitulo = (TextView) itemView.findViewById(R.id.titulo_postPrincipal);
         txtContenido = (TextView) itemView.findViewById(R.id.descripcion_postPrincipal);
-        txtIndicador=(TextView) itemView.findViewById(R.id.indicador_postPrincipal);
+        ImgEstado=(ImageView) itemView.findViewById(R.id.imagen1);
 
         // Capture position and set to the TextViews
-
-        txtTitulo.setText(titulos[position]);
-        txtContenido.setText(contenido[position]);
-        if(indicador[position].equals("Pendiente")){
-            txtIndicador.setText("Pendiente");
-            txtIndicador.setTextColor(Color.parseColor("#E53935"));
-        }else{
-            txtIndicador.setText("Realizado");
-            txtIndicador.setTextColor(Color.parseColor("#00C853"));
+        try {
+            obj=listaPost.getJSONObject(position);
+            txtTitulo.setText(obj.getString("titulo").toString());
+            txtContenido.setText(obj.getString("contenido").toString());
+            if(obj.getString("indicador").toString().equals("Pendiente")){
+                ImgEstado.setImageResource(R.drawable.pendiente);
+            }else{
+                ImgEstado.setImageResource(R.drawable.procesado);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
 
         return itemView;
     }
+
 }

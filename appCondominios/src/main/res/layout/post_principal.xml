@@ -39,8 +39,9 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Cobro mes Enero"
+                        android:textSize="19sp"
                         android:id="@+id/titulo_postPrincipal"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="3dp"
                         android:textColor="#ff000000" />
 
                     <TextView
@@ -55,54 +56,26 @@
                         android:layout_alignParentStart="true" />
 
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="30dp"
-                        android:layout_height="50dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_toRightOf="@+id/titulo_postPrincipal"
-                        android:id="@+id/linearLayout"
-                        android:layout_above="@+id/estado_postPrincipal"></LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Estado:"
-                        android:id="@+id/estado_postPrincipal"
-                        android:layout_alignBottom="@+id/titulo_postPrincipal"
-                        android:layout_toLeftOf="@+id/linearLayout2"
-                        android:layout_toStartOf="@+id/linearLayout2"
-                        android:textColor="#212020" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Pendiente"
-                        android:id="@+id/indicador_postPrincipal"
-                        android:layout_alignBottom="@+id/estado_postPrincipal"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="#dc2828" />
-
-                    <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_width="5dp"
-                        android:layout_height="match_parent"
-                        android:layout_above="@+id/descripcion_postPrincipal"
-                        android:layout_toRightOf="@+id/linearLayout"
-                        android:layout_toLeftOf="@+id/indicador_postPrincipal"
-                        android:layout_toStartOf="@+id/indicador_postPrincipal"
-                        android:id="@+id/linearLayout2"></LinearLayout>
+                        android:layout_width="24dp"
+                        android:layout_height="48dp"
+                        android:id="@+id/linearLayout2"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:id="@+id/imagen1" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_toStartOf="@+id/linearLayout"
                         android:layout_above="@+id/descripcion_postPrincipal"
-                        android:layout_below="@+id/titulo_postPrincipal"
-                        android:layout_alignRight="@+id/indicador_postPrincipal"
-                        android:layout_alignEnd="@+id/indicador_postPrincipal"></LinearLayout>
+                        android:layout_below="@+id/titulo_postPrincipal"></LinearLayout>
 
                 </RelativeLayout>
 
