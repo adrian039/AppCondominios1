@@ -139,6 +139,9 @@ public class Principal extends ActionBarActivity {
                 getResources().getDisplayMetrics());
     }
 
+    /*****Funcion que crea un objeto json para cada post y los guarda en u jsonArray para poder mostralos en el post
+    de la pagina principal************/
+
     private JSONArray datos() throws JSONException {
         ob1=new JSONObject();
         obj2=new JSONObject();

@@ -25,6 +25,7 @@ public class PostAdapter extends BaseAdapter {
     LayoutInflater inflater;
     JSONObject obj;
 
+    //Funcion en la que se pasa como parametro el JsonArray creado con los obetos json, para poder insertarlos en el post
     public PostAdapter(Context context, JSONArray listaPost) {
         this.context = context;
         this.listaPost=listaPost;
@@ -64,6 +65,8 @@ public class PostAdapter extends BaseAdapter {
 
         // Capture position and set to the TextViews
         try {
+            /****Se toma el objeto en la posicion de la variable "position", del jsonArray, se toma el titulo, contenido e indicador
+            que son quienes componen el objeto json extraido del jsonArray, y se insertan en el post****/
             obj=listaPost.getJSONObject(position);
             txtTitulo.setText(obj.getString("titulo").toString());
             txtContenido.setText(obj.getString("contenido").toString());
